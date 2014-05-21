@@ -7,4 +7,4 @@
 <nt='http://www.jcp.org/jcr/nt/1.0'>
 <mix='http://www.jcp.org/jcr/mix/1.0'>
 
-[myplugin:mydocumet] > hippostd:relaxed
+[myplugin:compound] > hippo:compound, hippostd:relaxed

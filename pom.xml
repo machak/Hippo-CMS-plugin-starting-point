@@ -1,45 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
- <modelVersion>4.0.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
- <parent>
-   <groupId>org.onehippo.cms7</groupId>
-   <artifactId>hippo-cms7-project</artifactId>
-   <version>11</version>
- </parent>
+  <parent>
+    <groupId>org.onehippo.cms7</groupId>
+    <artifactId>hippo-cms7-release</artifactId>
+    <version>7.9.0</version>
+  </parent>
 
- <groupId>org.onehippo.forge</groupId>
- <artifactId>myplugin</artifactId>
- <packaging>pom</packaging>
- <version>1.00.00-SNAPSHOT</version>
- <name>My plugin</name>
- <url>http://myplugin.forge.onehippo.org/</url>
+  <groupId>org.onehippo.forge</groupId>
+  <artifactId>myplugin</artifactId>
+  <packaging>pom</packaging>
+  <version>1.00.00-SNAPSHOT</version>
+  <name>My plugin</name>
+  <url>http://myplugin.forge.onehippo.org/</url>
 
- <properties>
-  <hippo.hst.version>2.24.00</hippo.hst.version>
-  <hippo.repository.version>2.22.04</hippo.repository.version>
-  <hippo.cms.version>2.22.02</hippo.cms.version>
-  <lib.wicket.version>1.4.19-h1</lib.wicket.version>
- </properties>
+  <modules>
+    <module>cms</module>
+    <module>repository</module>
+    <module>hst</module>
+  </modules>
 
- <repositories>
+
+  <build>
+    <defaultGoal>package</defaultGoal>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <forkMode>always</forkMode>
+          <workingDirectory>${project.build.directory}</workingDirectory>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <repositories>
     <repository>
       <id>hippo-maven2</id>
       <name>Hippo maven 2 repository.</name>
       <url>http://maven.onehippo.com/maven2/</url>
-      <snapshots />
+      <snapshots/>
       <releases>
         <updatePolicy>never</updatePolicy>
       </releases>
       <layout>default</layout>
     </repository>
- </repositories>
-
- <modules>
-   <module>cms</module>
-   <module>repository</module>
-   <module>hst</module>
- </modules>
+  </repositories>
 
 </project>
